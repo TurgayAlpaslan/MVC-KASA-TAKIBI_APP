@@ -1,0 +1,108 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Giriş Sayfası</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/LoginScript/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/LoginScript/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    <link href="~/LoginScript/css/Backgraund.css" rel="stylesheet" />
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form method="post" class="login100-form validate-form">
+                    <span class="login100-form-title p-b-26">
+                    
+                        Hoşgeldiniz
+                    </span>
+                    <span class="login100-form-title p-b-48">
+                       
+                    </span>
+
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" name="KullaniciAdi">
+                        <span class="focus-input100" data-placeholder="Kullanıcı Adı"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="btn-show-pass">
+                            <i class="zmdi zmdi-eye"></i>
+                        </span>
+                        <input class="input100" type="password" name="Sifre">
+                        <span class="focus-input100" data-placeholder="Şifre"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn">
+                                Giris Yap
+                            </button>
+                        </div>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        @if (ViewBag.Hata != null)
+                        {
+                            <p class="text-danger">@ViewBag.Hata</p>
+                        }
+                    </div>
+                    <div class="text-center p-t-115">
+                        <span class="txt1">
+                            Hesabınız Yok mu ?
+                        </span>
+
+                        <a class="txt2" href="/Kullanicilar/Kaydol/">
+                            Kayıt Ol
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/LoginScript/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginScript/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginScript/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/LoginScript/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginScript/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginScript/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/LoginScript/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginScript/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginScript/js/main.js"></script>
+
+
+</body>
+</html>

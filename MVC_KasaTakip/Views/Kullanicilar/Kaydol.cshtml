@@ -1,0 +1,72 @@
+﻿@model MVC_KasaTakip.Models.Entity.Kullanicilar
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kullanıcı Kayıt Sayfası</title>
+    <link href="~/LoginScript/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/css/styles.css" rel="stylesheet" />
+</head>
+<body class="container col-md-7">
+    <br />
+    @using (Html.BeginForm("Kaydol", "Kullanicilar", FormMethod.Post))
+    {
+        <div style="height:50px; background-color:darkcyan;color:white;text-align:center" ;>
+            <p style="margin-top:auto;margin-bottom:auto; font-size:30px">Kullanici Kayit Sayfasi</p>
+        </div>
+        <div style="margin-top:4px">
+            @Html.LabelFor(x => x.KullaniciAdi, new { @class = "text-info" })
+            @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.KullaniciAdi, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:4px">
+            @Html.LabelFor(x => x.Sifre, new { @class = "text-info" })
+            @Html.PasswordFor(x => x.Sifre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Sifre, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:4px">
+            @Html.LabelFor(x => x.Adi, new { @class = "text-info" })
+            @Html.TextBoxFor(x => x.Adi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Adi, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:4px">
+            @Html.LabelFor(x => x.Soyadi, new { @class = "text-info" })
+            @Html.TextBoxFor(x => x.Soyadi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Soyadi, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:4px">
+            @Html.LabelFor(x => x.Telefon, new { @class = "text-info" })
+            @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Telefon, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:4px">
+            @Html.LabelFor(x => x.Email, new { @class = "text-info" })
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:4px">
+            @Html.LabelFor(x => x.Tarih, new { @class = "text-info"})
+            @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(x => x.Tarih, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:20px;">
+            <button class="btn btn-primary form-control">Kayıt Ol</button>
+        </div>
+        <p></p>
+    }
+
+<link href="~/LoginScript/css/Backgraund2.css" rel="stylesheet" />
+ 
+</body>
+</html>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="kasataki_turgayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Islemler">
+          <Key>
+            <PropertyRef Name="islem_no" />
+          </Key>
+          <Property Name="islem_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="islem_tarih" Type="date" />
+          <Property Name="islem_tur" Type="nvarchar" MaxLength="50" />
+          <Property Name="islem_aciklama" Type="nvarchar(max)" />
+          <Property Name="islem_odemesekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="islem_girenmiktar" Type="nvarchar" MaxLength="50" />
+          <Property Name="islem_cikanmiktar" Type="nvarchar" MaxLength="50" />
+          <Property Name="kullanici_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="11" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tarih" Type="date" />
+        </EntityType>
+        <Association Name="FK_Islemler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="Islemler" Type="Self.Islemler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Islemler">
+              <PropertyRef Name="kullanici_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kasataki_turgayModelStoreContainer">
+          <EntitySet Name="Islemler" EntityType="Self.Islemler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Islemler_Kullanicilar" Association="Self.FK_Islemler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Islemler" EntitySet="Islemler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kasataki_turgayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Islemler">
+          <Key>
+            <PropertyRef Name="islem_no" />
+          </Key>
+          <Property Name="islem_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="islem_tarih" Type="DateTime" Precision="0" />
+          <Property Name="islem_tur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="islem_aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="islem_odemesekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="islem_girenmiktar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="islem_cikanmiktar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kullanici_id" Type="Int32" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK_Islemler_Kullanicilar" FromRole="Islemler" ToRole="Kullanicilar" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Islemler" Relationship="Self.FK_Islemler_Kullanicilar" FromRole="Kullanicilar" ToRole="Islemler" />
+        </EntityType>
+        <Association Name="FK_Islemler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="Islemler" Type="Self.Islemler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Islemler">
+              <PropertyRef Name="kullanici_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kasataki_turgayEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Islemlers" EntityType="Self.Islemler" />
+          <EntitySet Name="Kullanicilars" EntityType="Self.Kullanicilar" />
+          <AssociationSet Name="FK_Islemler_Kullanicilar" Association="Self.FK_Islemler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+            <End Role="Islemler" EntitySet="Islemlers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kasataki_turgayModelStoreContainer" CdmEntityContainer="kasataki_turgayEntities">
+          <EntitySetMapping Name="Islemlers">
+            <EntityTypeMapping TypeName="kasataki_turgayModel.Islemler">
+              <MappingFragment StoreEntitySet="Islemler">
+                <ScalarProperty Name="islem_no" ColumnName="islem_no" />
+                <ScalarProperty Name="islem_tarih" ColumnName="islem_tarih" />
+                <ScalarProperty Name="islem_tur" ColumnName="islem_tur" />
+                <ScalarProperty Name="islem_aciklama" ColumnName="islem_aciklama" />
+                <ScalarProperty Name="islem_odemesekli" ColumnName="islem_odemesekli" />
+                <ScalarProperty Name="islem_girenmiktar" ColumnName="islem_girenmiktar" />
+                <ScalarProperty Name="islem_cikanmiktar" ColumnName="islem_cikanmiktar" />
+                <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilars">
+            <EntityTypeMapping TypeName="kasataki_turgayModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
